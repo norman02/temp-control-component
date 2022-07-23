@@ -1,5 +1,5 @@
-import "./App.css";
 import React, { useState } from "react";
+import { Styles } from "./Styles";
 
 function App() {
   const [temperature, setTemperature] = useState(0);
@@ -13,14 +13,14 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <div className="temperature-component">
-        <div className="temperature-display">
+    <div style={Styles.app}>
+      <div style={Styles.temperatureComponent}>
+        <div style={Styles.temperatureDisplay}>
           <p>{temperature}</p>
         </div>
-        <div className="temperature-controls">
-          <button onClick={decreaseTemperature}>-</button>
-          <button onClick={increaseTemperature}>+</button>
+        <div style={Styles.temperatureControls}>
+          <button style={Styles.button} onClick={decreaseTemperature}>-</button>
+          <button style={Styles.button} onClick={increaseTemperature}>+</button>
         </div>
       </div>
     </div>
