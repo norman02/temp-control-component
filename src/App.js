@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Styles } from "./Styles";
-
+import Display from "./components/Display";
+import Controls from "./components/Constrols";
 function App() {
   const [temperature, setTemperature] = useState(0);
 
@@ -9,19 +10,17 @@ function App() {
   };
 
   const increaseTemperature = () => {
-    setTemperature(prev=> prev + 1)
-  }
+    setTemperature((prev) => prev + 1);
+  };
 
   return (
     <div style={Styles.app}>
       <div style={Styles.temperatureComponent}>
-        <div style={Styles.temperatureDisplay}>
-          <p>{temperature}</p>
-        </div>
-        <div style={Styles.temperatureControls}>
-          <button style={Styles.button} onClick={decreaseTemperature}>-</button>
-          <button style={Styles.button} onClick={increaseTemperature}>+</button>
-        </div>
+        <Display temperature={temperature} />
+        <Controls
+          increaseTemperature={increaseTemperature}
+          decreaseTemperature={decreaseTemperature}
+        />
       </div>
     </div>
   );
